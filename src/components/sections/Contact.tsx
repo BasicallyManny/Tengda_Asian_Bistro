@@ -5,4 +5,4 @@ export const Contact = () => (
         {/* Add contact form */}
       </div>
     </div>
-  );
+  );   

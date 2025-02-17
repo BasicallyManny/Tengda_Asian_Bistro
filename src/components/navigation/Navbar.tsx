@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { NavLink } from './NavLink';
-import { MobileNavLink } from './MobileNavLink';
 import { MdRestaurantMenu } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 
+import { ScrollLink } from './ScrollLink';
+
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const closeMenu = () => setTimeout(() => setIsMenuOpen(false), 300); // Small delay before closing menu
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm">
@@ -15,12 +17,12 @@ export const Navbar = () => {
         <div className="flex items-center h-16 mb-4">
           {/* Desktop Navigation - Centered */}
           <div className="hidden md:flex flex-1 items-center justify-center space-x-8">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/menu">Menu</NavLink>
-            <NavLink to="/gallery">Gallery</NavLink>
-            <NavLink to="/contact">Contact</NavLink>
+            <ScrollLink to="hero">Home</ScrollLink>
+            <ScrollLink to="menu-preview">Menus</ScrollLink>
+            <ScrollLink to="gallery-preview">Gallery</ScrollLink>
+            <ScrollLink to="contact">Contact</ScrollLink>
           </div>
-          
+
           {/* Mobile Navigation */}
           <div className="flex md:hidden flex-1 items-center justify-between">
             {/* Menu Icon */}
@@ -46,10 +48,34 @@ export const Navbar = () => {
               className="md:hidden overflow-hidden"
             >
               <div className="px-2 py-3 space-y-1 backdrop-blur-sm rounded-lg my-2">
-                <MobileNavLink to="/">Home</MobileNavLink>
-                <MobileNavLink to="/menu">Menu</MobileNavLink>
-                <MobileNavLink to="/about">Order Now</MobileNavLink>
-                <MobileNavLink to="https://order.toasttab.com/online/tengda-asian-bistro">Contact</MobileNavLink>
+                <ScrollLink 
+                  to="hero" 
+                  onClick={closeMenu}
+                  className="w-full text-left text-gray-300 hover:text-white px-3 py-2 block"
+                >
+                  Home
+                </ScrollLink>
+                <ScrollLink 
+                  to="menu-preview" 
+                  onClick={closeMenu}
+                  className="w-full text-left text-gray-300 hover:text-white px-3 py-2 block"
+                >
+                  Menus
+                </ScrollLink>
+                <ScrollLink 
+                  to="gallery-preview" 
+                  onClick={closeMenu}
+                  className="w-full text-left text-gray-300 hover:text-white px-3 py-2 block"
+                >
+                  Gallery
+                </ScrollLink>
+                <ScrollLink 
+                  to="contact" 
+                  onClick={closeMenu}
+                  className="w-full text-left text-gray-300 hover:text-white px-3 py-2 block"
+                >
+                  Contact
+                </ScrollLink>
               </div>
             </motion.div>
           )}

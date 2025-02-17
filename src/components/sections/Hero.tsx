@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import sushiRoll from "../../assets/sushiRoll.jpg";
+import sushiRoll from "../../assets/sushiRoll.webp";
 
 //Import Icons
 import { GrInstagram } from "react-icons/gr";
