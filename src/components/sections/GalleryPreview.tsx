@@ -42,7 +42,7 @@ export const GalleryPreview = () => {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-900 text-white flex flex-col items-center justify-center">
+    <div className="pt-16 min-h-screen bg-neutral-900 text-white flex flex-col items-center justify-center">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-4xl font-bold text-center mb-8">Gallery Preview</h1>
 
@@ -71,7 +71,7 @@ export const GalleryPreview = () => {
               />
               {/* Button always visible */}
               <div className="absolute inset-0 flex items-center justify-center z-20">
-                <button className="relative inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-gray-900 rounded-full bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 hover:from-red-300 hover:via-red-400 hover:to-yellow-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 transition-all duration-300">
+                <button className="relative inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-black rounded-full bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 hover:from-red-300 hover:via-red-400 hover:to-yellow-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 transition-all duration-300">
                   View Full Gallery
                 </button>
               </div>
@@ -101,7 +101,7 @@ export const GalleryPreview = () => {
           </motion.div>
 
           {/* Column 2: Two Stacked Images for larger screens */}
-          <div className="flex flex-col gap-6 sm:block hidden">
+          <div className="hidden flex-col gap-6 sm:block">
             {/* Top Image with Button Overlay */}
             <motion.div
               className="relative overflow-hidden rounded-lg bg-neutral-800 cursor-pointer"
@@ -124,7 +124,7 @@ export const GalleryPreview = () => {
               />
               {/* Button always visible */}
               <div className="absolute inset-0 flex items-center justify-center z-20">
-                <button className="relative inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-gray-900 rounded-full bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 hover:from-red-300 hover:via-red-400 hover:to-yellow-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 transition-all duration-300">
+                <button className="relative inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-black rounded-full bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 hover:from-red-300 hover:via-red-400 hover:to-yellow-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 transition-all duration-300">
                   View Full Gallery
                 </button>
               </div>
