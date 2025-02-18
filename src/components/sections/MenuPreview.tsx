@@ -1,21 +1,20 @@
 import { motion } from 'framer-motion';
-//Import Images
+import { Link } from 'react-router-dom'; // Import Link from React Router
 import lunchMenuImage from "../../assets/pageimages/lunchMenuImage.jpg";
 import dinnerMenuImage from "../../assets/pageimages/dinnerMenuImage.jpg";
-//import sushiRoll from "../../assets/sushiRoll.jpg";
-
-
 
 const menuItems = [
   {
     name: 'Lunch Menu',
     description: 'Take a look at our delicious lunch Menu',
-    imageUrl: lunchMenuImage, // Replace with actual image path
+    imageUrl: lunchMenuImage,
+    link: '/lunch-menu',
   },
   {
     name: 'Dinner Menu',
     description: 'Take a look at our delicious dinner Menu',
-    imageUrl: dinnerMenuImage, // Replace with actual image path
+    imageUrl: dinnerMenuImage,
+    link: '/dinner-menu',
   },
 ];
 
@@ -30,15 +29,17 @@ export const MenuPreview = () => (
             whileHover={{ scale: 1.05 }}
             className="relative overflow-hidden rounded-lg aspect-square"
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${item.imageUrl})` }}
-            />
-            <div className="absolute inset-0 bg-black/30 hover:bg-black/50 transition-colors duration-300" />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="text-2xl text-white font-bold mb-2">{item.name}</h3>
-              <p className="text-m text-white">{item.description}</p>
-            </div>
+            <Link to={item.link}>
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${item.imageUrl})` }}
+              />
+              <div className="absolute inset-0 bg-black/30 hover:bg-black/50 transition-colors duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl text-white font-bold mb-2">{item.name}</h3>
+                <p className="text-m text-white">{item.description}</p>
+              </div>
+            </Link>
           </motion.div>
         ))}
       </div>
