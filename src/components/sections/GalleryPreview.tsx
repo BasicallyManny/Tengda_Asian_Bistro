@@ -51,7 +51,7 @@ export const GalleryPreview = () => {
                 decoding="async"
                 onLoad={() => handleImageLoad(2)}
                 variants={imageHoverVariants}
-                className={`w-full h-[30vh] sm:h-[40vh] md:h-[50vh] object-cover rounded-lg transition-opacity duration-300 ${imagesLoaded[2] ? "opacity-100" : "opacity-0"}`}
+                className={`w-full h-[60vh] sm:h-[40vh] md:h-[50vh] object-cover rounded-lg transition-opacity duration-300 ${imagesLoaded[2] ? "opacity-100" : "opacity-0"}`}
               />
               <div className="absolute inset-0 flex items-center justify-center z-20">
                 <Link to="/gallery">
