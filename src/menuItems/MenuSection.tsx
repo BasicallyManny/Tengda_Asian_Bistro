@@ -19,7 +19,7 @@ const MenuSection = ({ title, items, imageSrc }) => (
           <img
             src={imageSrc}
             alt={title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transform scale"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 to-transparent" />
           <h2 className="absolute bottom-4 left-4 text-2xl font-bold text-amber-400">
