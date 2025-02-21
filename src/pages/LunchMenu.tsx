@@ -1,107 +1,109 @@
-const hibachiLunchItems = [
-  { name: "Chicken Hibachi", price: "$14.95" },
-  { name: "Shrimp Hibachi", price: "$16.95" },
-  { name: "Steak Hibachi", price: "$16.95" },
-  { name: "Salmon Hibachi", price: "$15.95" },
-  { name: "Scallop Hibachi", price: "$19.95" },
-  { name: "Filet Mignon Hibachi", price: "$17.95" },
-  { name: "Vegetable Hibachi", price: "$13.95" },
-  { name: "Chicken & Shrimp Hibachi", price: "$20.95" },
-  { name: "Chicken & Steak Hibachi", price: "$21.95" },
-  { name: "Steak & Shrimp Hibachi", price: "$21.95" },
-  { name: "Shrimp & Scallop Hibachi", price: "$21.95" },
-];
+import React from 'react';
+import { motion } from 'framer-motion';
+import { hibachiLunchItems, tasteOfAsiaLunchItems, sushiAndLunchBoxe, twoRollSpecial, threeRollSpecial } from "../menuItems/lunchMenuItems";
 
-const tasteOfAsiaLunchItems = [
-  { name: "Thai Curry Chicken", price: "$14.95" },
-  { name: "Wok Basil Chicken", price: "$14.95" },
-  { name: "Spicy Mango Chicken", price: "$14.95" },
-  { name: "Chicken Pad Thai", price: "$14.95" },
-  { name: "Thai Herb Chicken", price: "$14.95" },
-  { name: "Chicken Broccoli", price: "$14.95" },
-  { name: "Chicken Mix Vegetables", price: "$14.95" },
-  { name: "Chicken Garlic Sauce", price: "$14.95" },
-  { name: "Chicken Black Bean Sauce", price: "$14.95" },
-  { name: "General Tso’s Chicken", price: "$14.95" },
-  { name: "Sesame Chicken", price: "$14.95" },
-  { name: "Peppercorn Chicken", price: "$14.95" },
-  { name: "Chicken Peanut Spicy Sauce", price: "$14.95" },
-  { name: "Chicken Snow Peas", price: "$14.95" },
-  { name: "Glazed Ginger Sauce Chicken", price: "$14.95" },
-  { name: "Chicken Eggplant", price: "$14.95" },
-  { name: "Chicken Cashewnut", price: "$14.95" },
-  { name: "Thai Curry Beef", price: "$14.95" },
-  { name: "Wok Basil Beef", price: "$14.95" },
-  { name: "Beef Pad Thai", price: "$14.95" },
-  { name: "Thai Herb Beef", price: "$14.95" },
-  { name: "Beef Broccoli", price: "$14.95" },
-  { name: "Beef Mixed Vegetables", price: "$14.95" },
-  { name: "Beef Garlic Sauce", price: "$14.95" },
-  { name: "Beef Black Bean Sauce", price: "$14.95" },
-  { name: "Szechuan Shredded Beef", price: "$14.95" },
-  { name: "Thai Curry Shrimp", price: "$14.95" },
-  { name: "Wok Basil Shrimp", price: "$14.95" },
-  { name: "Spicy Mango Shrimp", price: "$14.95" },
-  { name: "Shrimp Pad Thai", price: "$14.95" },
-  { name: "Thai Herb Shrimp", price: "$14.95" },
-  { name: "Shrimp Broccoli", price: "$14.95" },
-  { name: "Shrimp Mix Vegetables", price: "$14.95" },
-  { name: "Shrimp Garlic Sauce", price: "$14.95" },
-  { name: "Black Bean Sauce Shrimp", price: "$14.95" },
-  { name: "General Tso’s Shrimp", price: "$14.95" },
-  { name: "Sesame Shrimp", price: "$14.95" },
-  { name: "Glazed Ginger Sauce Shrimp", price: "$14.95" },
-  { name: "Thai Curry Scallop", price: "$16.95" },
-  { name: "Wok Basil Scallop", price: "$16.95" },
-  { name: "Thai Herb Scallop", price: "$16.95" },
-  { name: "Scallop Broccoli", price: "$16.95" },
-  { name: "Scallop Mix Vegetables", price: "$16.95" },
-  { name: "Scallop Garlic Sauce", price: "$16.95" },
-  { name: "Scallop Black Bean Sauce", price: "$16.95" },
-  { name: "Thai Curry Veggie & Tofu", price: "$12.95" },
-  { name: "Veggie Pad Thai", price: "$12.95" },
-  { name: "Thai Style Asparagus & String Bean", price: "$12.95" },
-  { name: "Broccoli Brown Sauce", price: "$12.95" },
-  { name: "Wok Mix Veggie", price: "$12.95" },
-  { name: "Eggplant Garlic Sauce", price: "$12.95" },
-];
-
-const MenuSection = ({ title, description, items, imageAlt }) => (
-  <div className="space-y-4 animate-slide-up">
-    <h2 className="text-3xl font-semibold mb-2">{title}</h2>
-    {description && <p className="mb-4">{description}</p>}
-    <div className="w-full h-48 bg-gray-700 rounded-2xl shadow-lg animate-zoom-in" aria-label={imageAlt}></div>
-    <ul>
+const MenuSection = ({ title, items, imageSrc }) => (
+  <motion.section 
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="rounded-lg bg-neutral-800 p-6 shadow-lg"
+  >
+    {imageSrc && (
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        className="mb-6 relative h-48 rounded-lg overflow-hidden"
+      >
+        <img
+          src={imageSrc}
+          alt={title}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 to-transparent" />
+        <h2 className="absolute bottom-4 left-4 text-2xl font-bold text-amber-400">
+          {title}
+        </h2>
+      </motion.div>
+    )}
+    {!imageSrc && (
+      <h2 className="text-2xl font-bold mb-6 text-center text-amber-400 border-b border-amber-400/20 pb-3">
+        {title}
+      </h2>
+    )}
+    <ul className="space-y-4">
       {items.map((item, index) => (
-        <li
+        <motion.li
           key={index}
-          className="flex justify-between py-2 border-b border-neutral-700 hover:bg-neutral-800 transition duration-300 rounded-lg px-2"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          className="group hover:bg-neutral-700/50 rounded-lg transition-colors duration-200 p-4"
         >
-          <span>{item.name}</span>
-          <span className="font-semibold">{item.price}</span>
-        </li>
+          <div className="flex justify-between items-center">
+            <motion.span 
+              className="text-lg font-medium group-hover:text-amber-400 transition-colors duration-200"
+              whileHover={{ scale: 1.02 }}
+            >
+              {item.name}
+            </motion.span>
+            <motion.span 
+              whileHover={{ scale: 1.1 }}
+              className="font-semibold text-amber-400 bg-neutral-900/50 px-3 py-1 rounded-full"
+            >
+              {item.price}
+            </motion.span>
+          </div>
+          {item.description && (
+            <p className="text-neutral-300 mt-2 leading-relaxed">
+              {item.description}
+            </p>
+          )}
+        </motion.li>
       ))}
     </ul>
-  </div>
+  </motion.section>
 );
 
 export const LunchMenu = () => (
-  <div className="pt-16 min-h-screen bg-neutral-900 text-white">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-4xl font-bold mb-8 text-center animate-fade-in">Our Lunch Menu</h1>
-      <section className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <MenuSection
-          title="Hibachi Lunch"
-          description="Served with noodles, vegetables & rice"
-          items={hibachiLunchItems}
-          imageAlt="Hibachi Lunch Items"
+  <div className="min-h-screen bg-gradient-to-b from-neutral-900 to-neutral-800 text-white">
+    <div className="max-w-4xl mx-auto px-4 py-16">
+      <motion.h1 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-4xl font-bold mb-12 text-center text-amber-400"
+      >
+        Our Lunch Menu
+      </motion.h1>
+      <motion.div 
+        className="space-y-12"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+      >
+        <MenuSection 
+          title="Hibachi Lunch" 
+          items={hibachiLunchItems} 
+          imageSrc="/api/placeholder/800/400" 
         />
-        <MenuSection
-          title="Taste Of Asia Lunch"
-          items={tasteOfAsiaLunchItems}
-          imageAlt="Taste of Asia Lunch Items"
+        <MenuSection 
+          title="Taste of Asia Lunch" 
+          items={tasteOfAsiaLunchItems} 
+          imageSrc="/api/placeholder/800/400" 
         />
-      </section>
+        <MenuSection title="Sushi & Lunch Boxes" items={sushiAndLunchBoxe} />
+        <MenuSection title="Two Roll Special" items={twoRollSpecial} />
+        <MenuSection 
+          title="Three Roll Special" 
+          items={threeRollSpecial}
+          imageSrc="/api/placeholder/800/400" 
+        />
+      </motion.div>
     </div>
   </div>
 );
+
+export default LunchMenu;
