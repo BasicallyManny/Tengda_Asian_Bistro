@@ -1,6 +1,7 @@
 interface MenuItem {
   name: string;
   price: string;
+  description?: string;
 }
 
 export const hibachiLunchItems: MenuItem[] = [

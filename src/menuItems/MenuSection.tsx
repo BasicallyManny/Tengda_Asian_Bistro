@@ -1,7 +1,18 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
-const MenuSection = ({ title, items, imageSrc }) => (
+interface MenuItem {
+  name: string;
+  price: string;
+  description?: string;
+}
+
+interface MenuSectionProps {
+  title: string;
+  items: MenuItem[];
+  imageSrc: string;
+}
+
+const MenuSection: React.FC<MenuSectionProps> = ({ title, items, imageSrc }) => (
     <motion.section 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
