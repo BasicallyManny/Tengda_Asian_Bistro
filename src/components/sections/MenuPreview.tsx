@@ -29,7 +29,7 @@ export const MenuPreview = () => (
             whileHover={{ scale: 1.05 }}
             className="relative overflow-hidden rounded-lg aspect-square"
           >
-            <Link to={item.link}>
+            <Link to={item.link} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(${item.imageUrl})` }}
