@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { sushiAppetizer, sushiPlatter, rollAndHandRolls, soup, salad, appetizer, sushiSashimi, specialRolls, kidHibAndSides, tasteOfAsia, healthyDiet, soda } from "../menuItems/dinnerMenuItems"
 

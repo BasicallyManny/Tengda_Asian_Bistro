@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import sushiRoll from "../../assets/heroImages/sushiRoll.webp";
-
 import galleryPreview2 from "../../assets/gallery/galleryPreview2.jpg";
 import rollAndHandRolllDinner from "../../assets/menuImages/rollAndHandRollDinner.jpg";
 import sashimiDinnerImg from "../../assets/menuImages/sashimiDinner.jpg";
 import specialRolls from "../../assets/menuImages/specialRollsDinner.jpg";
 import { GrInstagram } from "react-icons/gr";
 import { FaFacebookF } from "react-icons/fa";
+
+import { useState, useEffect } from 'react';
 
 export const Hero = () => {
   const images = [
