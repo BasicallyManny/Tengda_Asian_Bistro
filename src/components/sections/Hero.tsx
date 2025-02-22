@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import sushiRoll from "../../assets/sushiRoll.webp";
+import sushiRoll from "../../assets/heroImages/sushiRoll.webp";
+
+import galleryPreview2 from "../../assets/gallery/galleryPreview2.jpg";
+import rollAndHandRolllDinner from "../../assets/menuImages/rollAndHandRollDinner.jpg";
+import sashimiDinnerImg from "../../assets/menuImages/sashimiDinner.jpg";
+import specialRolls from "../../assets/menuImages/specialRollsDinner.jpg";
 import { GrInstagram } from "react-icons/gr";
 import { FaFacebookF } from "react-icons/fa";
 
 export const Hero = () => {
   const images = [
     sushiRoll,
-    "/api/placeholder/1920/1080",
-    "/api/placeholder/1920/1080",
-    "/api/placeholder/1920/1080",
-    "/api/placeholder/1920/1080"
+    sashimiDinnerImg,
+    rollAndHandRolllDinner,
+    galleryPreview2,
+    specialRolls
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,7 +26,7 @@ export const Hero = () => {
     }, 5000); // Change image every 5 seconds
 
     return () => clearInterval(timer);
-  }, []);
+  }, [images.length]);
 
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
