@@ -2,8 +2,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import sushiRoll from "../../assets/heroImages/sushiRoll.webp";
 import galleryPreview2 from "../../assets/gallery/galleryPreview2.jpg";
 import rollAndHandRolllDinner from "../../assets/menuImages/rollAndHandRollDinner.jpg";
-import sashimiDinnerImg from "../../assets/menuImages/sashimiDinner.jpg";
-import specialRolls from "../../assets/menuImages/specialRollsDinner.jpg";
+import outDoor1 from "../../assets/heroImages/ourDoor1.jpg"
+import outDoor2 from "../../assets/heroImages/outdoor2.jpg"
 import { GrInstagram } from "react-icons/gr";
 import { FaFacebookF } from "react-icons/fa";
 
@@ -12,10 +12,10 @@ import { useState, useEffect } from 'react';
 export const Hero = () => {
   const images = [
     sushiRoll,
-    sashimiDinnerImg,
+    outDoor1,
     rollAndHandRolllDinner,
     galleryPreview2,
-    specialRolls
+    outDoor2
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -41,7 +41,7 @@ export const Hero = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
-            className="w-full h-full object-cover opacity-85 object-center"
+            className="w-full h-full object-cover opacity-5a object-center"
             loading="eager"
           />
         </AnimatePresence>
