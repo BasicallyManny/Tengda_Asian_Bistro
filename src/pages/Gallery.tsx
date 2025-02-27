@@ -1,28 +1,61 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
+//Import images
+import hibachiLunchImage from '../assets/menuImages/hibachiLunch.jpg';
+import sushiandLunchBoxesImage from "../assets/menuImages/sushiandLunchBoxes.jpg";
+import twoRollSpecialImage from "../assets/menuImages/twoRollSpecial.jpg";
+import threeRollSpecialImage from "../assets/menuImages/threeRollSpecial.jpg";
+
+import outDoor1 from '../assets/heroImages/ourDoor1.jpg';
+import outDoor2 from '../assets/heroImages/outdoor2.jpg';
+
+import tasteOfAsia from '../assets/menuImages/tasteOfAsia.jpg';
+import healthyDinner from '../assets/menuImages/healthyDinner.jpg';
+import tasteOfAsiaDinner from '../assets/menuImages/tasteOfAsiaDinner.jpg';
+import sashimiDinner from '../assets/menuImages/sashimiDinner.jpg';
+import sushiPlatterDinner from '../assets/menuImages/sushiPlatterDinner.jpg';
+import soupDinner from '../assets/menuImages/soupDinner.jpg';
+import specialDinnerRolls from '../assets/menuImages/specialRollsDinner.jpg';
+import sushiAppetizer from '../assets/menuImages/sushiAppetizerDinner.jpg';
+import appetizerDinner from '../assets/menuImages/appetizerDinner.jpg';
+
+import dinnerMenuImage from '../assets/pageimages/dinnerMenuImage.jpg';
+
+import galleryPreview3 from '../assets/gallery/galleryPreview3.jpg';
+
 // Define TypeScript interfaces
 interface GalleryImage {
   id: number;
   src: string;
   alt: string;
+  span?: {
+    col?: number;
+    row?: number;
+  };
+
 }
 
 export const Gallery: React.FC = () => {
-  // Sample gallery data
+  // Gallery data with manual span configurations to avoid empty spaces
   const galleryImages: GalleryImage[] = [
-    { id: 1, src: "/api/placeholder/600/400", alt: "Grilled salmon with asparagus" },
-    { id: 2, src: "/api/placeholder/600/400", alt: "Chocolate lava cake" },
-    { id: 3, src: "/api/placeholder/600/400", alt: "Caprese salad" },
-    { id: 4, src: "/api/placeholder/600/400", alt: "Ribeye steak" },
-    { id: 5, src: "/api/placeholder/600/400", alt: "Truffle pasta" },
-    { id: 6, src: "/api/placeholder/600/400", alt: "Tiramisu" },
-    { id: 7, src: "/api/placeholder/600/400", alt: "Bruschetta" },
-    { id: 8, src: "/api/placeholder/600/400", alt: "Seafood paella" },
-    { id: 9, src: "/api/placeholder/600/400", alt: "Crème brûlée" },
-    { id: 10, src: "/api/placeholder/600/400", alt: "Shrimp cocktail" },
-    { id: 11, src: "/api/placeholder/600/400", alt: "Beef Wellington" },
-    { id: 12, src: "/api/placeholder/600/400", alt: "Cheesecake" },
+    { id: 1, src: outDoor1, alt: "Outdoor Photo 1", span: { col: 2, row: 2 } },
+    { id: 2, src: outDoor2, alt: "Outdoor Photo 2" },
+    { id: 3, src: sushiandLunchBoxesImage, alt: "House Sashimi" },
+    { id: 4, src: twoRollSpecialImage, alt: "Two Roll Special" },
+    { id: 5, src: threeRollSpecialImage, alt: "Three Roll Special", span: { row: 2 } },
+    { id: 6, src: hibachiLunchImage, alt: "Hibachi Lunch" },
+    { id: 7, src: sushiPlatterDinner, alt: "Sushi Platter" },
+    { id: 8, src: tasteOfAsia, alt: "Double Cooked Pork" },
+    { id: 9, src: healthyDinner, alt: "Steam Mix Vegetables" },
+    { id: 10, src: tasteOfAsiaDinner, alt: "Mapo Tofu", span: { row: 2 } },
+    { id: 11, src: sashimiDinner, alt: "White Tuna", span: { row: 2 } },
+    { id: 12, src: galleryPreview3, alt: "Pork Bun" },
+    { id: 13, src: soupDinner, alt: "Miso Soup" },
+    { id: 14, src: specialDinnerRolls, alt: "Deluxe Rainbow Roll", span: { col: 2 } },
+    { id: 15, src: sushiAppetizer, alt: "Salmon Tar Tar", span: { row: 2 } },
+    { id: 16, src: appetizerDinner, alt: "Edamame", span:{ row: 2 } },
+    { id: 17, src: dinnerMenuImage, alt: "Trio Color Sushi", span: { col: 2 } },
   ];
 
   // State for selected image modal
@@ -34,19 +67,19 @@ export const Gallery: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.05
       }
     }
   };
 
   // Child variants for individual items
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 10 },
     visible: {
       opacity: 1,
       y: 0,
       transition: { 
-        duration: 0.5 
+        duration: 0.4 
       }
     }
   };
@@ -64,7 +97,7 @@ export const Gallery: React.FC = () => {
         </motion.h1>
         
         <motion.p 
-          className="text-xl text-gray-400 mb-12"
+          className="text-xl text-gray-400 mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -72,46 +105,45 @@ export const Gallery: React.FC = () => {
           A showcase of our most delicious creations, crafted with passion and precision
         </motion.p>
 
-        {/* Gallery collage */}
+        {/* Gallery collage with no empty spaces */}
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {galleryImages.map((image, index) => {
-            // Create variable heights for a more natural collage look
-            const isLarge = index % 5 === 0;
-            const isMedium = index % 3 === 0 && !isLarge;
-            
-            return (
-              <motion.div 
-                key={image.id}
-                className={`relative overflow-hidden rounded-lg shadow-lg cursor-pointer ${
-                  isLarge ? 'sm:col-span-2 sm:row-span-2' : isMedium ? 'md:col-span-1 md:row-span-2' : ''
-                }`}
-                variants={itemVariants}
-                whileHover={{ 
-                  scale: 1.03, 
-                  transition: { duration: 0.3 } 
-                }}
-                onClick={() => setSelectedImage(image)}
-              >
-                <div className="relative h-full">
-                  <img 
-                    src={image.src} 
-                    alt={image.alt}
-                    className={`w-full ${
-                      isLarge ? 'h-96 md:h-full' : isMedium ? 'h-72 md:h-full' : 'h-64'
-                    } object-cover`}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <p className="text-white font-medium">{image.alt}</p>
-                  </div>
+          {galleryImages.map((image) => (
+            <motion.div 
+              key={image.id}
+              className={`relative overflow-hidden rounded-lg shadow-lg cursor-pointer ${
+                image.span?.col === 2 ? 'sm:col-span-2' : ''
+              } ${
+                image.span?.row === 2 ? 'row-span-2' : ''
+              }`}
+              variants={itemVariants}
+              whileHover={{ 
+                scale: 1.03, 
+                transition: { duration: 0.3 } 
+              }}
+              onClick={() => setSelectedImage(image)}
+            >
+              <div className="relative h-full">
+                <img 
+                  src={image.src} 
+                  alt={image.alt}
+                  className={`w-full ${
+                    image.span?.row === 2 ? 'h-full min-h-full object-cover' : 
+                    image.id === 14 ? 'h-48' : 
+                    image.span?.col === 2 && image.span?.row === 2 ? 'h-96 md:h-full' : 
+                    'h-60'
+                  } object-cover`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <p className="text-white font-medium">{image.alt}</p>
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
 
         {/* Image modal */}
