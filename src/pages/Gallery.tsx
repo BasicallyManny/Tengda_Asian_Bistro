@@ -15,12 +15,13 @@ import healthyDinner from '../assets/menuImages/healthyDinner.jpg';
 import tasteOfAsiaDinner from '../assets/menuImages/tasteOfAsiaDinner.jpg';
 import sashimiDinner from '../assets/menuImages/sashimiDinner.jpg';
 import sushiPlatterDinner from '../assets/menuImages/sushiPlatterDinner.jpg';
-import soupDinner from '../assets/menuImages/soupDinner.jpg';
+//import soupDinner from '../assets/menuImages/soupDinner.jpg';
 import specialDinnerRolls from '../assets/menuImages/specialRollsDinner.jpg';
 import sushiAppetizer from '../assets/menuImages/sushiAppetizerDinner.jpg';
 import appetizerDinner from '../assets/menuImages/appetizerDinner.jpg';
 
 import dinnerMenuImage from '../assets/pageimages/dinnerMenuImage.jpg';
+import lunchMenuImage from '../assets/pageimages/lunchMenuImage.jpg';
 
 import galleryPreview3 from '../assets/gallery/galleryPreview3.jpg';
 
@@ -49,13 +50,14 @@ export const Gallery: React.FC = () => {
     { id: 8, src: tasteOfAsia, alt: "Double Cooked Pork" },
     { id: 9, src: healthyDinner, alt: "Steam Mix Vegetables" },
     { id: 10, src: tasteOfAsiaDinner, alt: "Mapo Tofu", span: { row: 2 } },
-    { id: 11, src: sashimiDinner, alt: "White Tuna", span: { row: 2 } },
-    { id: 12, src: galleryPreview3, alt: "Pork Bun" },
-    { id: 13, src: soupDinner, alt: "Miso Soup" },
+    { id: 11, src: sashimiDinner, alt: "White Tuna", span: { col: 2 } },
+    { id: 12, src: galleryPreview3, alt: "Pork Bun",  },
+    { id: 13, src: lunchMenuImage, alt: "Seaseme Chicken", span: { col: 2 } },
     { id: 14, src: specialDinnerRolls, alt: "Deluxe Rainbow Roll", span: { col: 2 } },
     { id: 15, src: sushiAppetizer, alt: "Salmon Tar Tar", span: { row: 2 } },
     { id: 16, src: appetizerDinner, alt: "Edamame", span:{ row: 2 } },
     { id: 17, src: dinnerMenuImage, alt: "Trio Color Sushi", span: { col: 2 } },
+
   ];
 
   // State for selected image modal
